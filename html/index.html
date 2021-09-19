@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <script src="../js/jqeury.js"></script>
+        <style>
+            textarea {
+                font-size: 16px;
+                overflow-x: scroll;
+                white-space: pre;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>SQL To Struct</h1>
+        <div>
+            <div style="width:50%;float:left;">
+                <h2>SQL</h2>
+                <textarea id="sql-input" rows="30" cols="85"></textarea>
+            </div>
+            <div style="width:50%;float:right">
+                <h2>struct</h2>
+                <textarea id="struct-output" readonly="readonly" rows="30" cols="85"></textarea>
+            </div>
+         </div>
+    </body>
+    <script type="module">
+        import {parserSql2Struct} from "../js/parser_sql.js"
+        $("#sql-input").bind("input propertychange", function() {
+            var result = parserSql2Struct($("#sql-input").val())
+            $("#struct-output").val(result)
+        });
+    </script>
+</html>
