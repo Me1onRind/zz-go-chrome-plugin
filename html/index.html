@@ -2,33 +2,31 @@
 <html>
     <head>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/style.css">
+        <!--<link href="https://cdn.jsdelivr.net/npm/@bootcss/v3.bootcss.com@1.0.17/dist/css/bootstrap.min.css" rel="stylesheet">-->
         <script src="../js/jqeury.js"></script>
-        <style>
-            textarea {
-                font-size: 16px;
-                overflow-x: scroll;
-                white-space: pre;
-            }
-        </style>
+        <script src="../js/bootstrap.min.js"></script>
     </head>
     <body>
-        <h1>SQL To Struct</h1>
-        <div>
-            <div style="width:50%;float:left;">
-                <h2>SQL</h2>
-                <textarea id="sql-input" rows="30" cols="85"></textarea>
+        <div id="nav" class="container">
+            <div class="row">
+                <div id="nav-box" class="col-md-1 index-box"  target="choose">
+                    <span>首页</span>
+                </div>
             </div>
-            <div style="width:50%;float:right">
-                <h2>struct</h2>
-                <textarea id="struct-output" readonly="readonly" rows="30" cols="85"></textarea>
-            </div>
-         </div>
+        </div>
+        <div id="app"></div>
     </body>
     <script type="module">
-        import {parserSql2Struct} from "../js/parser_sql.js"
-        $("#sql-input").bind("input propertychange", function() {
-            var result = parserSql2Struct($("#sql-input").val())
-            $("#struct-output").val(result)
-        });
+        import {changeView} from "../js/util.js"
+        $(document).ready(function() {
+            let view = window.location.hash
+            if (!view) {
+                view = "#choose"
+            }
+            view = view.substring(1, view.length)
+            changeView(view)
+        })
     </script>
 </html>

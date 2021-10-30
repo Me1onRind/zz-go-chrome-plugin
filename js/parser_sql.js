@@ -34,7 +34,7 @@ function parserCreateSql(sql) {
         //}
         var fields = line.replace(/\s+/, " ").split(" ")
         if (fields.length < 2) {
-            return null
+            continue
         }
         var fieldType = fields[1].replace(/\(.*\)/, "")
         if (typeMaps[fieldType] == undefined) {

@@ -18,4 +18,26 @@ function indexOf(s, targets) {
     return -1
 }
 
-export {indexOf, titleCase}
+function changeView(view) {
+      $("#app").load(view+".html", function() {
+          $(".index-box").each(function(){
+              if (!$(this).attr("origin-color")) {
+                $(this).attr("origin-color", $(this).css("background"))
+              }
+          })
+          $(".index-box").mouseenter(function(){
+              let borderColor = $(this).css("border-color")
+              $(this).css("background", borderColor)
+          })
+          $(".index-box").mouseleave(function(){
+              $(this).css("background", $(this).attr("origin-color"))
+          })
+          $(".index-box").click(function(){
+              let view = $(this).attr("target")
+              document.title = view
+              changeView(view)
+          })
+      })
+}
+
+export {indexOf, titleCase, changeView}

@@ -1,0 +1,23 @@
+<h1>SQL To Struct</h1>
+<div class="container">
+    <div class="row" class="container">
+        <div class="col-md-6">
+            <h2>SQL</h2>
+            <textarea class="col-md-11" rows="25" id="sql-input"></textarea>
+        </div>
+        <div class="col-md-6">
+            <h2>struct</h2>
+            <textarea class="col-md-11" rows="25" id="struct-output" readonly="readonly"></textarea>
+        </div>
+    </div>
+<script type="module">
+    import {parserSql2Struct} from "../js/parser_sql.js"
+    $("#sql-input").bind("input propertychange", function() {
+        var result = parserSql2Struct($("#sql-input").val())
+        if (result.length == 0) {
+            result = "No result"
+        }
+        $("#struct-output").val(result)
+    });
+</script>
+</div>

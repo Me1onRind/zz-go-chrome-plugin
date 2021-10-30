@@ -1,5 +1,5 @@
 {
-    "manifest_version": 2,
+    "manifest_version": 3,
     "name": "dev tool",
     "version": "0.1.0",
     "description": "a developer-friendly tool used for trasfering sql to golang struct",
@@ -8,23 +8,29 @@
         "48": "img/logo48.png",
         "128": "img/logo128.png"
     },
-    "browser_action": {
+    "background": {
+        "service_worker": "js/background.js"
+    },
+    "action": {
         "default_icon": "img/logo16.png",
         "default_title": "go dev tool"
     },
     "permissions": [
-        "storage"
+        "storage",
+        "tabs"
     ],
-    "background": {
-        "scripts": [
-            "js/background.js"
+    "sandbox": {
+        "pages": [
+            "html/index.html",
+            "html/pop.html"
         ]
     },
-    "sandbox": {
-        "pages": ["html/index.html"]
-    },
+    "content_script": [
+    ],
     "web_accessible_resources": [
-        "css/fonts/element-icons.ttf",
-        "css/fonts/element-icons.woff"
+        {
+            "resources": ["html/index.html"],
+            "extension_ids": ["kfhdegeonchmimpncaiikmhicnbmkkib"]
+        }
     ]
 }

@@ -1,0 +1,45 @@
+body {
+    margin: 0px 25px;
+}
+
+#nav {
+    padding: 0px;
+    margin: 0px;
+}
+
+#nav .row {
+    margin: -13px 0px 0px -40px;
+}
+
+#nav-box {
+    background: #4e6ef2;
+    border: 1px solid #4662d9;
+    height: 50px;
+}
+
+#index-div {
+    margin: 30px 70px;
+}
+
+textarea {
+    font-size: 16px;
+    overflow-x: scroll;
+    white-space: pre;
+}
+
+.index-box {
+    cursor: pointer;
+    background: #ff8200;
+    height: 70px;
+    border: 1px solid #ff5900;
+    margin: 20px;
+    font-size: 22px;
+}
+
+.index-box span {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%) translateX(-50%);
+    left: 50%;
+    color: #fff;
+}
